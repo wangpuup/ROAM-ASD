@@ -1,0 +1,60 @@
+<title>ROAM-ASD Missing Modalities</title>
+<style>
+:root{--bg:#0f1012;--ink:#e8e6e1;--muted:#8d8a83;--line:#26282c;--ok:#5ee08a}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.5}
+.wrap{max-width:1180px;margin:0 auto;padding-block:36px;padding-left:18px;padding-right:18px}
+h1{font-size:1.6rem;margin:0 0 6px}
+h2{font-weight:600;font-size:1.05rem;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin:38px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+h3{font-size:1rem;margin:22px 0 6px}
+p{max-width:90ch}.muted{color:var(--muted);font-size:.92rem}
+video,img{width:100%;height:auto;display:block;border-radius:8px;background:#000}
+.legend{display:flex;flex-wrap:wrap;gap:10px 22px;font-size:.92rem;margin:6px 0 10px}
+.legend span{display:inline-flex;align-items:center;gap:8px}
+.sw{width:16px;height:16px;border-radius:3px;display:inline-block;box-sizing:border-box}
+.ring{width:16px;height:16px;border-radius:50%;border:3px solid #ffa500;display:inline-block;box-sizing:border-box}
+table{border-collapse:collapse;font-size:.88rem;margin:8px 0 4px}
+th,td{padding:6px 12px;border-bottom:1px solid var(--line);text-align:right}th:first-child,td:first-child{text-align:left}
+th{color:var(--muted);font-weight:600;font-size:.78rem;text-transform:uppercase;letter-spacing:.05em}
+.tw{overflow-x:auto}
+</style>
+<div class="wrap">
+<h1>ROAM-ASD with missing modalities</h1>
+<p class="muted">The same clips as the showcase, re-scored by the same model with input streams removed. Nothing is retrained: the stream is simply absent at the input and the fusion works with what remains. Scores are from the stored evaluation runs.</p>
+<div class="legend"><span><i class="sw" style="border:3px solid #3cc83c"></i>green frame: predicted speaking</span><span><i class="sw" style="border:3px solid #e62828"></i>red frame: predicted silent</span><span><i class="ring"></i>orange circle: disagrees with ground truth</span><span>% in each panel header: accuracy over the clip under that condition</span></div>
+<h2>One clip, six input conditions</h2>
+<p class="muted">Panels, left to right and top to bottom: all streams &middot; microphone dead (zeros fed, the model hears nothing; you still hear the real audio) &middot; face stream removed &middot; mouth stream removed &middot; face only (no audio, no mouth) &middot; audio only (no video at all &mdash; the model cannot tell faces apart, so every face gets the same score).</p>
+<h3>ASW &mdash; uyht4l5z4-Q, 16&ndash;26 s</h3>
+<video controls preload="metadata" playsinline src="videos/cond_asw.mp4"></video>
+<div class="tw"><table><tr><th>all streams</th><th>microphone dead</th><th>face removed</th><th>mouth removed</th><th>face only</th><th>audio only</th></tr><tr><td>100.0%</td><td>100.0%</td><td>15.9%</td><td>100.0%</td><td>100.0%</td><td>15.9%</td></tr></table></div>
+<h3>AVA-ActiveSpeaker &mdash; C25wkwAMB-w, 1038&ndash;1048 s</h3>
+<video controls preload="metadata" playsinline src="videos/cond_ava.mp4"></video>
+<div class="tw"><table><tr><th>all streams</th><th>microphone dead</th><th>face removed</th><th>mouth removed</th><th>face only</th><th>audio only</th></tr><tr><td>100.0%</td><td>94.0%</td><td>100.0%</td><td>100.0%</td><td>85.6%</td><td>76.4%</td></tr></table></div>
+<h3>UniTalk - mixed (hard) &mdash; ABqo634gI5s, 11&ndash;21 s</h3>
+<video controls preload="metadata" playsinline src="videos/cond_unitalk_mixed.mp4"></video>
+<div class="tw"><table><tr><th>all streams</th><th>microphone dead</th><th>face removed</th><th>mouth removed</th><th>face only</th><th>audio only</th></tr><tr><td>99.2%</td><td>97.8%</td><td>99.3%</td><td>99.3%</td><td>99.3%</td><td>35.7%</td></tr></table></div>
+<h3>WASD - Face Occlusion &mdash; ZQESmCZZnH4_185-215, 0&ndash;10 s</h3>
+<video controls preload="metadata" playsinline src="videos/cond_wasd_FO.mp4"></video>
+<div class="tw"><table><tr><th>all streams</th><th>microphone dead</th><th>face removed</th><th>mouth removed</th><th>face only</th><th>audio only</th></tr><tr><td>100.0%</td><td>100.0%</td><td>100.0%</td><td>100.0%</td><td>100.0%</td><td>75.0%</td></tr></table></div>
+<h3>WASD - Human Voice Noise &mdash; Lh4dSfTGnGk_230-254, 12&ndash;22 s</h3>
+<video controls preload="metadata" playsinline src="videos/cond_wasd_HVN.mp4"></video>
+<div class="tw"><table><tr><th>all streams</th><th>microphone dead</th><th>face removed</th><th>mouth removed</th><th>face only</th><th>audio only</th></tr><tr><td>96.8%</td><td>97.2%</td><td>97.0%</td><td>96.8%</td><td>85.2%</td><td>70.2%</td></tr></table></div>
+<h3>WASD - Surveillance Settings &mdash; ZOIPEe4fcaM_824-854, 0&ndash;10 s</h3>
+<video controls preload="metadata" playsinline src="videos/cond_wasd_SS.mp4"></video>
+<div class="tw"><table><tr><th>all streams</th><th>microphone dead</th><th>face removed</th><th>mouth removed</th><th>face only</th><th>audio only</th></tr><tr><td>100.0%</td><td>100.0%</td><td>100.0%</td><td>100.0%</td><td>99.8%</td><td>66.7%</td></tr></table></div>
+<h2>Intermittent loss: a stream drops out in random gaps</h2>
+<p class="muted">A stream is removed for random stretches covering 30% of each track (seeded), and the model is scored <b>only inside the gaps</b>. Left panel: the clip with all streams. Right panel: the gap run &mdash; an amber border and banner mark every frame in which the stream was missing, and the boxes show what the model output at that moment.</p>
+<h3>WASD - Human Voice Noise &mdash; audio gaps of 3 s</h3>
+<p class="muted">Clip accuracy: no gaps 95.9% &middot; gap run, all frames 95.8% &middot; <b>inside the gaps 95.6%</b> (270 frames)</p>
+<video controls preload="metadata" playsinline src="videos/gap_wasd_HVN_audio3.mp4"></video>
+<h3>WASD - Surveillance Settings &mdash; visual gaps of 3 s</h3>
+<p class="muted">Clip accuracy: no gaps 100.0% &middot; gap run, all frames 100.0% &middot; <b>inside the gaps 100.0%</b> (270 frames)</p>
+<video controls preload="metadata" playsinline src="videos/gap_wasd_SS_visual3.mp4"></video>
+<h3>Gap sweep, whole validation sets (mAP, %)</h3>
+<img alt="gap sweep" src="gap_sweep.png">
+<div class="tw"><table><tr><th>Model / dataset</th><th>no gaps</th><th>audio 1s</th><th>audio 3s</th><th>audio 10s</th><th>face 1s</th><th>face 3s</th><th>face 10s</th><th>mouth 1s</th><th>mouth 3s</th><th>mouth 10s</th><th>visual 1s</th><th>visual 3s</th><th>visual 10s</th></tr>
+<tr><td>AVA (AVA-trained)</td><td>94.95</td><td>90.81</td><td>91.87</td><td>90.26</td><td>95.44</td><td>97.14</td><td>96.93</td><td>94.27</td><td>95.77</td><td>94.73</td><td>91.78</td><td>87.52</td><td>53.91</td></tr>
+<tr><td>WASD (WASD-trained)</td><td>98.32</td><td>97.77</td><td>96.64</td><td>95.13</td><td>98.67</td><td>98.24</td><td>98.25</td><td>98.42</td><td>97.84</td><td>97.79</td><td>98.24</td><td>96.99</td><td>94.79</td></tr>
+<tr><td>UniTalk (UniTalk-trained)</td><td>86.19</td><td>83.80</td><td>84.27</td><td>85.00</td><td>87.04</td><td>89.43</td><td>92.35</td><td>80.03</td><td>83.05</td><td>83.88</td><td>63.68</td><td>57.06</td><td>51.95</td></tr>
+</table></div>
+<p class="muted">Cells are mAP scored only inside the gaps. &ldquo;visual&rdquo; removes face and mouth together. The WASD gap run uses the standard-recipe WASD model; the other pages use the query-mask variant (98.79 vs 98.68 on WASD).</p>
+</div>
