@@ -19,7 +19,6 @@ th{color:var(--muted);font-weight:600;font-size:.78rem;text-transform:uppercase;
 </style>
 <div class="wrap">
 <h1>ROAM-ASD with missing modalities</h1>
-<p class="muted">The same clips as the showcase, re-scored by the same model with input streams removed. Nothing is retrained: the stream is simply absent at the input and the fusion works with what remains. Scores are from the stored evaluation runs.</p>
 <div class="legend"><span><i class="sw" style="border:3px solid #3cc83c"></i>green frame: predicted speaking</span><span><i class="sw" style="border:3px solid #e62828"></i>red frame: predicted silent</span><span><i class="ring"></i>orange circle: disagrees with ground truth</span><span>% in each panel header: accuracy over the clip under that condition</span></div>
 <h2>One clip, left to right: all streams, no audio, mouth dropped, face dropped</h2>
 <p class="muted">Four separate videos of the same moment. <b>No audio</b>: the model was fed silence, and this clip carries no audio track. <b>Mouth dropped</b>: the model receives no mouth crop, so the mouth region of every face is masked. <b>Face dropped</b>: the model receives no face crop but still gets the mouth crop, so the face is masked except the mouth. Boxes and scores in each video are what the model output under that condition. Press <i>play all</i> to run the four together.</p>
