@@ -96,12 +96,4 @@ function pauseAll(id){document.querySelectorAll('#'+id+' video').forEach(v=>v.pa
 <h3>WASD - Surveillance Settings &mdash; visual gaps of 3 s</h3>
 <p class="muted">Clip accuracy: no gaps 100.0% &middot; gap run, all frames 100.0% &middot; <b>inside the gaps 100.0%</b> (270 frames)</p>
 <video controls preload="metadata" playsinline src="videos/gap_wasd_SS_visual3.mp4"></video>
-<h3>Gap sweep, whole validation sets (mAP, %)</h3>
-<img alt="gap sweep" src="gap_sweep.png">
-<div class="tw"><table><tr><th>Model / dataset</th><th>no gaps</th><th>audio 1s</th><th>audio 3s</th><th>audio 10s</th><th>face 1s</th><th>face 3s</th><th>face 10s</th><th>mouth 1s</th><th>mouth 3s</th><th>mouth 10s</th><th>visual 1s</th><th>visual 3s</th><th>visual 10s</th></tr>
-<tr><td>AVA (AVA-trained)</td><td>94.95</td><td>90.81</td><td>91.87</td><td>90.26</td><td>95.44</td><td>97.14</td><td>96.93</td><td>94.27</td><td>95.77</td><td>94.73</td><td>91.78</td><td>87.52</td><td>53.91</td></tr>
-<tr><td>WASD (WASD-trained)</td><td>98.32</td><td>97.77</td><td>96.64</td><td>95.13</td><td>98.67</td><td>98.24</td><td>98.25</td><td>98.42</td><td>97.84</td><td>97.79</td><td>98.24</td><td>96.99</td><td>94.79</td></tr>
-<tr><td>UniTalk (UniTalk-trained)</td><td>86.19</td><td>83.80</td><td>84.27</td><td>85.00</td><td>87.04</td><td>89.43</td><td>92.35</td><td>80.03</td><td>83.05</td><td>83.88</td><td>63.68</td><td>57.06</td><td>51.95</td></tr>
-</table></div>
-<p class="muted">Cells are mAP scored only inside the gaps. &ldquo;visual&rdquo; removes face and mouth together. The WASD gap run uses the standard-recipe WASD model; the other pages use the query-mask variant (98.79 vs 98.68 on WASD).</p>
 </div>
