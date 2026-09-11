@@ -21,26 +21,68 @@ th{color:var(--muted);font-weight:600;font-size:.78rem;text-transform:uppercase;
 <h1>ROAM-ASD with missing modalities</h1>
 <p class="muted">The same clips as the showcase, re-scored by the same model with input streams removed. Nothing is retrained: the stream is simply absent at the input and the fusion works with what remains. Scores are from the stored evaluation runs.</p>
 <div class="legend"><span><i class="sw" style="border:3px solid #3cc83c"></i>green frame: predicted speaking</span><span><i class="sw" style="border:3px solid #e62828"></i>red frame: predicted silent</span><span><i class="ring"></i>orange circle: disagrees with ground truth</span><span>% in each panel header: accuracy over the clip under that condition</span></div>
-<h2>One clip, six input conditions</h2>
-<p class="muted">Panels, left to right and top to bottom: all streams &middot; microphone dead (zeros fed, the model hears nothing; you still hear the real audio) &middot; face stream removed &middot; mouth stream removed &middot; face only (no audio, no mouth) &middot; audio only (no video at all &mdash; the model cannot tell faces apart, so every face gets the same score).</p>
+<h2>One clip, left to right: all streams, no audio, mouth dropped, face dropped</h2>
+<p class="muted">Four separate videos of the same moment. <b>No audio</b>: the model was fed silence, and this clip carries no audio track. <b>Mouth dropped</b>: the model receives no mouth crop, so the mouth region of every face is masked. <b>Face dropped</b>: the model receives no face crop but still gets the mouth crop, so the face is masked except the mouth. Boxes and scores in each video are what the model output under that condition. Press <i>play all</i> to run the four together.</p>
+<script>
+function playAll(id){const vs=document.querySelectorAll('#'+id+' video');vs.forEach(v=>{v.pause();v.currentTime=0;});vs.forEach(v=>v.play());}
+function pauseAll(id){document.querySelectorAll('#'+id+' video').forEach(v=>v.pause());}
+</script>
+<style>.row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}@media(max-width:900px){.row{grid-template-columns:repeat(2,1fr)}}
+.btn{background:#26282c;color:#e8e6e1;border:1px solid #3a3d44;border-radius:6px;padding:4px 12px;margin:6px 6px 8px 0;cursor:pointer;font-size:.85rem}</style>
 <h3>ASW &mdash; uyht4l5z4-Q, 16&ndash;26 s</h3>
-<video controls preload="metadata" playsinline src="videos/cond_asw.mp4"></video>
-<div class="tw"><table><tr><th>all streams</th><th>microphone dead</th><th>face removed</th><th>mouth removed</th><th>face only</th></tr><tr><td>100.0%</td><td>100.0%</td><td>15.9%</td><td>100.0%</td><td>100.0%</td></tr></table></div>
+<button class="btn" onclick="playAll('row1')">&#9654; play all</button><button class="btn" onclick="pauseAll('row1')">&#10074;&#10074; pause</button>
+<div class="row" id="row1">
+<video controls preload="metadata" playsinline src="videos/row_asw_full.mp4"></video>
+<video controls preload="metadata" playsinline src="videos/row_asw_silence.mp4"></video>
+<video controls preload="metadata" playsinline src="videos/row_asw_mouth.mp4"></video>
+<video controls preload="metadata" playsinline src="videos/row_asw_face.mp4"></video>
+</div>
+<div class="tw"><table><tr><th>all streams</th><th>no audio</th><th>mouth dropped</th><th>face dropped</th></tr><tr><td>100.0%</td><td>100.0%</td><td>100.0%</td><td>15.9%</td></tr></table></div>
 <h3>AVA-ActiveSpeaker &mdash; C25wkwAMB-w, 1038&ndash;1048 s</h3>
-<video controls preload="metadata" playsinline src="videos/cond_ava.mp4"></video>
-<div class="tw"><table><tr><th>all streams</th><th>microphone dead</th><th>face removed</th><th>mouth removed</th><th>face only</th></tr><tr><td>100.0%</td><td>94.0%</td><td>100.0%</td><td>100.0%</td><td>85.6%</td></tr></table></div>
+<button class="btn" onclick="playAll('row2')">&#9654; play all</button><button class="btn" onclick="pauseAll('row2')">&#10074;&#10074; pause</button>
+<div class="row" id="row2">
+<video controls preload="metadata" playsinline src="videos/row_ava_full.mp4"></video>
+<video controls preload="metadata" playsinline src="videos/row_ava_silence.mp4"></video>
+<video controls preload="metadata" playsinline src="videos/row_ava_mouth.mp4"></video>
+<video controls preload="metadata" playsinline src="videos/row_ava_face.mp4"></video>
+</div>
+<div class="tw"><table><tr><th>all streams</th><th>no audio</th><th>mouth dropped</th><th>face dropped</th></tr><tr><td>100.0%</td><td>94.0%</td><td>100.0%</td><td>100.0%</td></tr></table></div>
 <h3>UniTalk - mixed (hard) &mdash; ABqo634gI5s, 11&ndash;21 s</h3>
-<video controls preload="metadata" playsinline src="videos/cond_unitalk_mixed.mp4"></video>
-<div class="tw"><table><tr><th>all streams</th><th>microphone dead</th><th>face removed</th><th>mouth removed</th><th>face only</th></tr><tr><td>99.2%</td><td>97.8%</td><td>99.3%</td><td>99.3%</td><td>99.3%</td></tr></table></div>
+<button class="btn" onclick="playAll('row3')">&#9654; play all</button><button class="btn" onclick="pauseAll('row3')">&#10074;&#10074; pause</button>
+<div class="row" id="row3">
+<video controls preload="metadata" playsinline src="videos/row_unitalk_mixed_full.mp4"></video>
+<video controls preload="metadata" playsinline src="videos/row_unitalk_mixed_silence.mp4"></video>
+<video controls preload="metadata" playsinline src="videos/row_unitalk_mixed_mouth.mp4"></video>
+<video controls preload="metadata" playsinline src="videos/row_unitalk_mixed_face.mp4"></video>
+</div>
+<div class="tw"><table><tr><th>all streams</th><th>no audio</th><th>mouth dropped</th><th>face dropped</th></tr><tr><td>99.2%</td><td>97.8%</td><td>99.3%</td><td>99.3%</td></tr></table></div>
 <h3>WASD - Face Occlusion &mdash; ZQESmCZZnH4_185-215, 0&ndash;10 s</h3>
-<video controls preload="metadata" playsinline src="videos/cond_wasd_FO.mp4"></video>
-<div class="tw"><table><tr><th>all streams</th><th>microphone dead</th><th>face removed</th><th>mouth removed</th><th>face only</th></tr><tr><td>100.0%</td><td>100.0%</td><td>100.0%</td><td>100.0%</td><td>100.0%</td></tr></table></div>
+<button class="btn" onclick="playAll('row4')">&#9654; play all</button><button class="btn" onclick="pauseAll('row4')">&#10074;&#10074; pause</button>
+<div class="row" id="row4">
+<video controls preload="metadata" playsinline src="videos/row_wasd_FO_full.mp4"></video>
+<video controls preload="metadata" playsinline src="videos/row_wasd_FO_silence.mp4"></video>
+<video controls preload="metadata" playsinline src="videos/row_wasd_FO_mouth.mp4"></video>
+<video controls preload="metadata" playsinline src="videos/row_wasd_FO_face.mp4"></video>
+</div>
+<div class="tw"><table><tr><th>all streams</th><th>no audio</th><th>mouth dropped</th><th>face dropped</th></tr><tr><td>100.0%</td><td>100.0%</td><td>100.0%</td><td>100.0%</td></tr></table></div>
 <h3>WASD - Human Voice Noise &mdash; Lh4dSfTGnGk_230-254, 12&ndash;22 s</h3>
-<video controls preload="metadata" playsinline src="videos/cond_wasd_HVN.mp4"></video>
-<div class="tw"><table><tr><th>all streams</th><th>microphone dead</th><th>face removed</th><th>mouth removed</th><th>face only</th></tr><tr><td>96.8%</td><td>97.2%</td><td>97.0%</td><td>96.8%</td><td>85.2%</td></tr></table></div>
+<button class="btn" onclick="playAll('row5')">&#9654; play all</button><button class="btn" onclick="pauseAll('row5')">&#10074;&#10074; pause</button>
+<div class="row" id="row5">
+<video controls preload="metadata" playsinline src="videos/row_wasd_HVN_full.mp4"></video>
+<video controls preload="metadata" playsinline src="videos/row_wasd_HVN_silence.mp4"></video>
+<video controls preload="metadata" playsinline src="videos/row_wasd_HVN_mouth.mp4"></video>
+<video controls preload="metadata" playsinline src="videos/row_wasd_HVN_face.mp4"></video>
+</div>
+<div class="tw"><table><tr><th>all streams</th><th>no audio</th><th>mouth dropped</th><th>face dropped</th></tr><tr><td>96.8%</td><td>97.2%</td><td>96.8%</td><td>97.0%</td></tr></table></div>
 <h3>WASD - Surveillance Settings &mdash; ZOIPEe4fcaM_824-854, 0&ndash;10 s</h3>
-<video controls preload="metadata" playsinline src="videos/cond_wasd_SS.mp4"></video>
-<div class="tw"><table><tr><th>all streams</th><th>microphone dead</th><th>face removed</th><th>mouth removed</th><th>face only</th></tr><tr><td>100.0%</td><td>100.0%</td><td>100.0%</td><td>100.0%</td><td>99.8%</td></tr></table></div>
+<button class="btn" onclick="playAll('row6')">&#9654; play all</button><button class="btn" onclick="pauseAll('row6')">&#10074;&#10074; pause</button>
+<div class="row" id="row6">
+<video controls preload="metadata" playsinline src="videos/row_wasd_SS_full.mp4"></video>
+<video controls preload="metadata" playsinline src="videos/row_wasd_SS_silence.mp4"></video>
+<video controls preload="metadata" playsinline src="videos/row_wasd_SS_mouth.mp4"></video>
+<video controls preload="metadata" playsinline src="videos/row_wasd_SS_face.mp4"></video>
+</div>
+<div class="tw"><table><tr><th>all streams</th><th>no audio</th><th>mouth dropped</th><th>face dropped</th></tr><tr><td>100.0%</td><td>100.0%</td><td>100.0%</td><td>100.0%</td></tr></table></div>
 <h2>Intermittent loss: a stream drops out in random gaps</h2>
 <p class="muted">A stream is removed for random stretches covering 30% of each track (seeded), and the model is scored <b>only inside the gaps</b>. Left panel: the clip with all streams. Right panel: the gap run &mdash; an amber border and banner mark every frame in which the stream was missing, and the boxes show what the model output at that moment.</p>
 <h3>AVA-ActiveSpeaker &mdash; visual gaps of 10 s</h3>
