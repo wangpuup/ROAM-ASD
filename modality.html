@@ -25,27 +25,42 @@ th{color:var(--muted);font-weight:600;font-size:.78rem;text-transform:uppercase;
 <p class="muted">Panels, left to right and top to bottom: all streams &middot; microphone dead (zeros fed, the model hears nothing; you still hear the real audio) &middot; face stream removed &middot; mouth stream removed &middot; face only (no audio, no mouth) &middot; audio only (no video at all &mdash; the model cannot tell faces apart, so every face gets the same score).</p>
 <h3>ASW &mdash; uyht4l5z4-Q, 16&ndash;26 s</h3>
 <video controls preload="metadata" playsinline src="videos/cond_asw.mp4"></video>
-<div class="tw"><table><tr><th>all streams</th><th>microphone dead</th><th>face removed</th><th>mouth removed</th><th>face only</th><th>audio only</th></tr><tr><td>100.0%</td><td>100.0%</td><td>15.9%</td><td>100.0%</td><td>100.0%</td><td>15.9%</td></tr></table></div>
+<div class="tw"><table><tr><th>all streams</th><th>microphone dead</th><th>face removed</th><th>mouth removed</th><th>face only</th></tr><tr><td>100.0%</td><td>100.0%</td><td>15.9%</td><td>100.0%</td><td>100.0%</td></tr></table></div>
 <h3>AVA-ActiveSpeaker &mdash; C25wkwAMB-w, 1038&ndash;1048 s</h3>
 <video controls preload="metadata" playsinline src="videos/cond_ava.mp4"></video>
-<div class="tw"><table><tr><th>all streams</th><th>microphone dead</th><th>face removed</th><th>mouth removed</th><th>face only</th><th>audio only</th></tr><tr><td>100.0%</td><td>94.0%</td><td>100.0%</td><td>100.0%</td><td>85.6%</td><td>76.4%</td></tr></table></div>
+<div class="tw"><table><tr><th>all streams</th><th>microphone dead</th><th>face removed</th><th>mouth removed</th><th>face only</th></tr><tr><td>100.0%</td><td>94.0%</td><td>100.0%</td><td>100.0%</td><td>85.6%</td></tr></table></div>
 <h3>UniTalk - mixed (hard) &mdash; ABqo634gI5s, 11&ndash;21 s</h3>
 <video controls preload="metadata" playsinline src="videos/cond_unitalk_mixed.mp4"></video>
-<div class="tw"><table><tr><th>all streams</th><th>microphone dead</th><th>face removed</th><th>mouth removed</th><th>face only</th><th>audio only</th></tr><tr><td>99.2%</td><td>97.8%</td><td>99.3%</td><td>99.3%</td><td>99.3%</td><td>35.7%</td></tr></table></div>
+<div class="tw"><table><tr><th>all streams</th><th>microphone dead</th><th>face removed</th><th>mouth removed</th><th>face only</th></tr><tr><td>99.2%</td><td>97.8%</td><td>99.3%</td><td>99.3%</td><td>99.3%</td></tr></table></div>
 <h3>WASD - Face Occlusion &mdash; ZQESmCZZnH4_185-215, 0&ndash;10 s</h3>
 <video controls preload="metadata" playsinline src="videos/cond_wasd_FO.mp4"></video>
-<div class="tw"><table><tr><th>all streams</th><th>microphone dead</th><th>face removed</th><th>mouth removed</th><th>face only</th><th>audio only</th></tr><tr><td>100.0%</td><td>100.0%</td><td>100.0%</td><td>100.0%</td><td>100.0%</td><td>75.0%</td></tr></table></div>
+<div class="tw"><table><tr><th>all streams</th><th>microphone dead</th><th>face removed</th><th>mouth removed</th><th>face only</th></tr><tr><td>100.0%</td><td>100.0%</td><td>100.0%</td><td>100.0%</td><td>100.0%</td></tr></table></div>
 <h3>WASD - Human Voice Noise &mdash; Lh4dSfTGnGk_230-254, 12&ndash;22 s</h3>
 <video controls preload="metadata" playsinline src="videos/cond_wasd_HVN.mp4"></video>
-<div class="tw"><table><tr><th>all streams</th><th>microphone dead</th><th>face removed</th><th>mouth removed</th><th>face only</th><th>audio only</th></tr><tr><td>96.8%</td><td>97.2%</td><td>97.0%</td><td>96.8%</td><td>85.2%</td><td>70.2%</td></tr></table></div>
+<div class="tw"><table><tr><th>all streams</th><th>microphone dead</th><th>face removed</th><th>mouth removed</th><th>face only</th></tr><tr><td>96.8%</td><td>97.2%</td><td>97.0%</td><td>96.8%</td><td>85.2%</td></tr></table></div>
 <h3>WASD - Surveillance Settings &mdash; ZOIPEe4fcaM_824-854, 0&ndash;10 s</h3>
 <video controls preload="metadata" playsinline src="videos/cond_wasd_SS.mp4"></video>
-<div class="tw"><table><tr><th>all streams</th><th>microphone dead</th><th>face removed</th><th>mouth removed</th><th>face only</th><th>audio only</th></tr><tr><td>100.0%</td><td>100.0%</td><td>100.0%</td><td>100.0%</td><td>99.8%</td><td>66.7%</td></tr></table></div>
+<div class="tw"><table><tr><th>all streams</th><th>microphone dead</th><th>face removed</th><th>mouth removed</th><th>face only</th></tr><tr><td>100.0%</td><td>100.0%</td><td>100.0%</td><td>100.0%</td><td>99.8%</td></tr></table></div>
 <h2>Intermittent loss: a stream drops out in random gaps</h2>
 <p class="muted">A stream is removed for random stretches covering 30% of each track (seeded), and the model is scored <b>only inside the gaps</b>. Left panel: the clip with all streams. Right panel: the gap run &mdash; an amber border and banner mark every frame in which the stream was missing, and the boxes show what the model output at that moment.</p>
+<h3>AVA-ActiveSpeaker &mdash; visual gaps of 10 s</h3>
+<p class="muted">Clip accuracy: no gaps 99.0% &middot; gap run, all frames 77.2% &middot; <b>inside the gaps 61.0%</b> (520 frames)</p>
+<video controls preload="metadata" playsinline src="videos/gap_ava_visual10.mp4"></video>
+<h3>AVA-ActiveSpeaker &mdash; visual gaps of 3 s</h3>
+<p class="muted">Clip accuracy: no gaps 97.4% &middot; gap run, all frames 83.5% &middot; <b>inside the gaps 77.7%</b> (381 frames)</p>
+<video controls preload="metadata" playsinline src="videos/gap_ava_visual3.mp4"></video>
+<h3>unitalk_visual &mdash; visual gaps of 10 s</h3>
+<p class="muted">Clip accuracy: no gaps 98.5% &middot; gap run, all frames 81.1% &middot; <b>inside the gaps 65.7%</b> (2086 frames)</p>
+<video controls preload="metadata" playsinline src="videos/gap_unitalk_visual10.mp4"></video>
+<h3>UniTalk - mixed (hard) &mdash; visual gaps of 3 s</h3>
+<p class="muted">Clip accuracy: no gaps 84.6% &middot; gap run, all frames 62.0% &middot; <b>inside the gaps 33.1%</b> (975 frames)</p>
+<video controls preload="metadata" playsinline src="videos/gap_unitalk_visual3.mp4"></video>
 <h3>WASD - Human Voice Noise &mdash; audio gaps of 3 s</h3>
-<p class="muted">Clip accuracy: no gaps 95.9% &middot; gap run, all frames 95.8% &middot; <b>inside the gaps 95.6%</b> (270 frames)</p>
+<p class="muted">Clip accuracy: no gaps 96.1% &middot; gap run, all frames 96.0% &middot; <b>inside the gaps 95.5%</b> (242 frames)</p>
 <video controls preload="metadata" playsinline src="videos/gap_wasd_HVN_audio3.mp4"></video>
+<h3>WASD - Surveillance Settings &mdash; visual gaps of 10 s</h3>
+<p class="muted">Clip accuracy: no gaps 100.0% &middot; gap run, all frames 100.0% &middot; <b>inside the gaps 100.0%</b> (768 frames)</p>
+<video controls preload="metadata" playsinline src="videos/gap_wasd_SS_visual10.mp4"></video>
 <h3>WASD - Surveillance Settings &mdash; visual gaps of 3 s</h3>
 <p class="muted">Clip accuracy: no gaps 100.0% &middot; gap run, all frames 100.0% &middot; <b>inside the gaps 100.0%</b> (270 frames)</p>
 <video controls preload="metadata" playsinline src="videos/gap_wasd_SS_visual3.mp4"></video>
