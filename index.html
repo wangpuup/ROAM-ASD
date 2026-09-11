@@ -1,0 +1,105 @@
+<title>ROAM-ASD Video Showcase</title>
+<style>
+:root{--bg:#0f1012;--ink:#e8e6e1;--muted:#8d8a83;--line:#26282c}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:1180px;margin:0 auto;padding-block:36px;padding-left:18px;padding-right:18px}
+h2{font-weight:600;font-size:1.05rem;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);
+   margin:34px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.sota{color:var(--muted);font-size:.85rem;margin:0 0 4px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 22px;font-size:.92rem;color:var(--ink);margin:4px 0 6px}
+.legend span{display:inline-flex;align-items:center;gap:8px}
+.sw{width:16px;height:16px;border-radius:3px;display:inline-block;box-sizing:border-box}
+.ring{width:16px;height:16px;border-radius:50%;border:3px solid #ffa500;display:inline-block;box-sizing:border-box}
+.score{font-weight:600;color:var(--ink);letter-spacing:0;text-transform:none;margin-left:14px;font-size:.95rem}
+h1.fam{font-size:1.35rem;font-weight:700;margin:44px 0 0;padding-top:18px;border-top:2px solid var(--ink)}
+h1.fam .score{font-size:1rem}
+.ours{color:#5ee08a;font-weight:800;font-size:1.15em;padding:1px 7px;border:1.5px solid #5ee08a;border-radius:6px;margin-right:4px}
+h1.fam .ours{font-size:1.2em}
+.desc{color:var(--muted);font-size:.9rem;margin:-6px 0 12px;max-width:80ch;text-transform:none;letter-spacing:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px}
+video{width:100%;height:auto;display:block;border-radius:8px;background:#000}
+</style>
+<div class="wrap">
+<h1 style="font-size:1.6rem;margin:0 0 4px;letter-spacing:-.01em">ROAM-ASD: Robust Open-World Active Speaker Detection with Flexible Multimodal Fusion</h1>
+<p class="sota">mAP (mean average precision, in %) is the standard active-speaker-detection score: for every annotated face at every frame the model outputs a speaking probability, and mAP is the area under the precision&ndash;recall curve of those scores against the ground-truth speaking labels &mdash; 100 means every speaking face is ranked above every silent one. The number next to each title is ROAM-ASD (ours) against SOTA &mdash; the state of the art, i.e. the best-performing published method on that dataset (WASD and UniTalk per category).</p>
+<div class="legend"><span><i class="sw" style="border:3px solid #3cc83c"></i>green frame: predicted speaking</span><span><i class="sw" style="border:3px solid #e62828"></i>red frame: predicted silent</span><span><i class="ring"></i>orange circle: prediction disagrees with ground truth</span><span>number above a face: speaking probability</span></div>
+<h2>AVA-ActiveSpeaker<span class="score">mAP: <b class="ours">ROAM-ASD (ours) 96.5</b> &middot; SOTA 95.6</span></h2><p class="desc">Movie clips; the standard active-speaker benchmark.</p><div class="grid">
+<video controls preload="metadata" playsinline src="videos/C25wkwAMB-w_1038.mp4"></video>
+<video controls preload="metadata" playsinline src="videos/IzvOYVMltkI_1559.mp4"></video>
+<video controls preload="metadata" playsinline src="videos/kMy-6RtoOVU_1162.mp4"></video>
+</div>
+<h2>ASW<span class="score">mAP: <b class="ours">ROAM-ASD (ours) 99.28</b> &middot; SOTA 98.3</span></h2><p class="desc">Broadcast and interview video, often many small faces on screen.</p><div class="grid">
+<video controls preload="metadata" playsinline src="videos/zt77yUMUmog_242.mp4"></video>
+<video controls preload="metadata" playsinline src="videos/uyht4l5z4-Q_16.mp4"></video>
+<video controls preload="metadata" playsinline src="videos/uDTMGgE5ojU_84.mp4"></video>
+<video controls preload="metadata" playsinline src="videos/wsTYso3hmEA_145.mp4"></video>
+</div>
+<h2>Talkies<span class="score">mAP: <b class="ours">ROAM-ASD (ours) 98.5</b> &middot; SOTA 96.1</span></h2><p class="desc">Short in-the-wild clips with many candidate faces and one speaker.</p><div class="grid">
+<video controls preload="metadata" playsinline src="videos/258c8210-bb99-4c36-8f15-70525d87c1a4_0.mp4"></video>
+<video controls preload="metadata" playsinline src="videos/027e628a-3b98-4597-ae56-e98ae771e3ea_0.mp4"></video>
+<video controls preload="metadata" playsinline src="videos/f076ac2f-e97c-42c6-9eef-fe549d69efd2_0.mp4"></video>
+<video controls preload="metadata" playsinline src="videos/5e16f8f9-8cf6-42c1-bef3-0a2ca3ec1eee_0.mp4"></video>
+<video controls preload="metadata" playsinline src="videos/e6a30e3d-d1eb-42a0-af51-921a5019b8ce_0.mp4"></video>
+<video controls preload="metadata" playsinline src="videos/331e0d4a-2c5b-4afa-8b1c-3858ed7962fd_0.mp4"></video>
+<video controls preload="metadata" playsinline src="videos/6e88a3dc-0737-405d-b043-ae427480ae1a_0.mp4"></video>
+<video controls preload="metadata" playsinline src="videos/fe5c8b94-6f64-40a7-9a9c-065eeb2da913_0.mp4"></video>
+<video controls preload="metadata" playsinline src="videos/f80b2779-8e46-4137-82cd-c3a5beaf351e_0.mp4"></video>
+</div>
+<h1 class="fam">WASD<span class="score">mAP average over the five categories: <b class="ours">ROAM-ASD (ours) 98.78</b> &middot; SOTA 93.7</span></h1>
+<h2>WASD · Optimal Conditions<span class="score">mAP: <b class="ours">ROAM-ASD (ours) 99.62</b> &middot; SOTA 97.8</span></h2><p class="desc">Optimal Conditions: people talking in an alternate manner, with minor interruptions, cooperative poses, and face availability.</p><div class="grid">
+<video controls preload="metadata" playsinline src="videos/X-9tgx7TkCI_1470-1500_2.mp4"></video>
+<video controls preload="metadata" playsinline src="videos/XdmpZdRYF3I_992-1018_0.mp4"></video>
+<video controls preload="metadata" playsinline src="videos/X-9tgx7TkCI_1380-1410_14.mp4"></video>
+</div>
+<h2>WASD · Speech Impairment<span class="score">mAP: <b class="ours">ROAM-ASD (ours) 99.68</b> &middot; SOTA 98.3</span></h2><p class="desc">Speech Impairment: frontal-pose subjects either talking via video-conference call (delayed speech) or in a heated discussion with potential talking overlap (speech overlap), face availability ensured.</p><div class="grid">
+<video controls preload="metadata" playsinline src="videos/BZ3UCHqF7Xg_480-510_8.mp4"></video>
+<video controls preload="metadata" playsinline src="videos/M-tjqPi8hm8_950-980_14.mp4"></video>
+<video controls preload="metadata" playsinline src="videos/BZ3UCHqF7Xg_450-480_6.mp4"></video>
+</div>
+<h2>WASD · Face Occlusion<span class="score">mAP: <b class="ours">ROAM-ASD (ours) 98.92</b> &middot; SOTA 95.4</span></h2><p class="desc">Face Occlusion: at least one subject has partial facial occlusion, while keeping good speech quality.</p><div class="grid">
+<video controls preload="metadata" playsinline src="videos/Ek845KnVu5Y_330-360_2.mp4"></video>
+<video controls preload="metadata" playsinline src="videos/ZQESmCZZnH4_185-215_0.mp4"></video>
+<video controls preload="metadata" playsinline src="videos/Ek845KnVu5Y_330-360_16.mp4"></video>
+</div>
+<h2>WASD · Human Voice Noise<span class="score">mAP: <b class="ours">ROAM-ASD (ours) 96.29</b> &middot; SOTA 84.7</span></h2><p class="desc">Human Voice Noise: communication between speakers while another human voice plays in the background, with face availability and subject cooperation.</p><div class="grid">
+<video controls preload="metadata" playsinline src="videos/EJBWTB8Np8E_540-570_2.mp4"></video>
+<video controls preload="metadata" playsinline src="videos/6_UYADws9nU_249-278_12.mp4"></video>
+<video controls preload="metadata" playsinline src="videos/EJBWTB8Np8E_140-170_16.mp4"></video>
+<video controls preload="metadata" playsinline src="videos/Lh4dSfTGnGk_230-254_12.mp4"></video>
+<video controls preload="metadata" playsinline src="videos/EJBWTB8Np8E_260-290_17.mp4"></video>
+<video controls preload="metadata" playsinline src="videos/rM3830sZkhc_53-70_5.mp4"></video>
+</div>
+<h2>WASD · Surveillance Settings<span class="score">mAP: <b class="ours">ROAM-ASD (ours) 96.18</b> &middot; SOTA 77.9</span></h2><p class="desc">Surveillance Settings: speaker communication in video-surveillance scenarios, with varying audio and image quality and no guarantee of face access, speech quality, or subject cooperation.</p><div class="grid">
+<video controls preload="metadata" playsinline src="videos/ZOIPEe4fcaM_824-854_0.mp4"></video>
+<video controls preload="metadata" playsinline src="videos/j7JiwtaOxuU_5280-5310_4.mp4"></video>
+<video controls preload="metadata" playsinline src="videos/kosESTzaW8A_510-540_10.mp4"></video>
+</div>
+<h1 class="fam">UniTalk<span class="score">mAP overall: <b class="ours">ROAM-ASD (ours) 87.92</b> &middot; SOTA 83.2</span></h1>
+<h2>UniTalk · language<span class="score">mAP: <b class="ours">ROAM-ASD (ours) 91.56</b> &middot; SOTA 86.7</span></h2><p class="desc">Language: speech in languages other than English.</p><div class="grid">
+<video controls preload="metadata" playsinline src="videos/ho_oK12hY6M_280.mp4"></video>
+</div>
+<h2>UniTalk · noise<span class="score">mAP: <b class="ours">ROAM-ASD (ours) 89.28</b> &middot; SOTA 84.1</span></h2><p class="desc">Noise: background sound competing with the speech (music, crowds, engines, other voices).</p><div class="grid">
+<video controls preload="metadata" playsinline src="videos/Hyk-WhQBIq0_210.mp4"></video>
+<video controls preload="metadata" playsinline src="videos/Hyk-WhQBIq0_936.mp4"></video>
+<video controls preload="metadata" playsinline src="videos/Hyk-WhQBIq0_478.mp4"></video>
+<video controls preload="metadata" playsinline src="videos/Hyk-WhQBIq0_638.mp4"></video>
+<video controls preload="metadata" playsinline src="videos/Hyk-WhQBIq0_1236.mp4"></video>
+</div>
+<h2>UniTalk · visual (crowded)<span class="score">mAP: <b class="ours">ROAM-ASD (ours) 90.60</b> &middot; SOTA 84.9</span></h2><p class="desc">Visual: visually hard scenes, such as crowded frames, small or partly occluded faces, and inserts.</p><div class="grid">
+<video controls preload="metadata" playsinline src="videos/wh3-1DUTb3Q_386.mp4"></video>
+<video controls preload="metadata" playsinline src="videos/wh3-1DUTb3Q_1378.mp4"></video>
+<video controls preload="metadata" playsinline src="videos/wh3-1DUTb3Q_706.mp4"></video>
+<video controls preload="metadata" playsinline src="videos/wh3-1DUTb3Q_1520.mp4"></video>
+<video controls preload="metadata" playsinline src="videos/wh3-1DUTb3Q_288.mp4"></video>
+<video controls preload="metadata" playsinline src="videos/wh3-1DUTb3Q_604.mp4"></video>
+</div>
+<h2>UniTalk · mixed (hard)<span class="score">mAP: <b class="ours">ROAM-ASD (ours) 81.19</b> &middot; SOTA 77.9</span></h2><p class="desc">Mixed: several of the above difficulties at once.</p><div class="grid">
+<video controls preload="metadata" playsinline src="videos/jKqR-ahl8po_8.mp4"></video>
+<video controls preload="metadata" playsinline src="videos/qv3-HaaxGUc_372.mp4"></video>
+<video controls preload="metadata" playsinline src="videos/jKqR-ahl8po_452.mp4"></video>
+<video controls preload="metadata" playsinline src="videos/ABqo634gI5s_11.mp4"></video>
+<video controls preload="metadata" playsinline src="videos/kgVz_AXYvn0_112.mp4"></video>
+<video controls preload="metadata" playsinline src="videos/jKqR-ahl8po_128.mp4"></video>
+<video controls preload="metadata" playsinline src="videos/kgVz_AXYvn0_152.mp4"></video>
+</div>
+</div>
