@@ -73,7 +73,7 @@ function pauseAll(id){document.querySelectorAll('#'+id+' video').forEach(v=>v.pa
 <video controls preload="metadata" playsinline src="videos/row_wasd_SS_face.mp4"></video>
 </div>
 <div class="tw"><table><tr><th>all streams</th><th>no audio</th><th>mouth dropped</th><th>face dropped</th></tr><tr><td>100.0%</td><td>100.0%</td><td>100.0%</td><td>100.0%</td></tr></table></div>
-<h2>Intermittent loss: a stream drops out in random gaps</h2>
+<h2>Temporary dropout: missing intervals in a stream</h2>
 <p class="muted">A stream is removed for random stretches covering 30% of each track (seeded), and the model is scored <b>only inside the gaps</b>. Left panel: the clip with all streams. Right panel: the gap run &mdash; an amber border and banner mark every frame in which the stream was missing, and the boxes show what the model output at that moment.</p>
 <h3>AVA-ActiveSpeaker &mdash; visual gaps of 10 s</h3>
 <p class="muted">Clip accuracy: no gaps 99.0% &middot; gap run, all frames 77.2% &middot; <b>inside the gaps 61.0%</b> (520 frames)</p>
